@@ -17,14 +17,14 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
-            $table->char('sexe');
-            $table->string('dateNaissance');
+            $table->char('sexe', 1); // Char pour le sexe (M/F)
+            $table->date('dateNaissance'); // Utilisation du type 'date'
             $table->string('lieuNaissance');
             $table->string('nationalite');
             $table->string('ville');
             $table->string('pays');
-            $table->string('telephone 1');
-            $table->string('telephone 2')->nullable();
+            $table->string('telephone_1');
+            $table->string('telephone_2')->nullable();
             $table->string('pieceIdentite');
             $table->string('numeroPieceIdentite');
             $table->string('email')->unique();

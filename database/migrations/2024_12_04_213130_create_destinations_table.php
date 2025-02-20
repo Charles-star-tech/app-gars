@@ -21,7 +21,7 @@ class CreateDestinationsTable extends Migration
             $table->string('ville_arrive');
             $table->timestamps();
         });
-        Schema::enableForeignKeyConstraints();
+        Schema::enableForeignKeyConstraints();  // Cette ligne est bien ici pour activer les clés étrangères
     }
 
     /**
@@ -31,9 +31,7 @@ class CreateDestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::table('destinations', function(Blueprint $table){
-            $table->dropForeign("payment_id");
-        });
+        // Aucune contrainte 'payment_id' dans cette table, donc pas besoin de la supprimer
         Schema::dropIfExists('destinations');
     }
 }

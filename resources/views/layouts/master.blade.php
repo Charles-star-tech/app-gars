@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{ route('historique_index') }}" class="nav-link">HISTORIQUE</a>
+        <a href="index3.html" class="nav-link">HISTORIQUE</a>
       </li>          
       <li class="nav-item d-none d-sm-inline-block">             
         <a href="index3.html" class="nav-link">ITINERAIRE</a>

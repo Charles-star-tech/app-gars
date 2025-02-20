@@ -16,8 +16,8 @@ class CreateCouriersTable extends Migration
         Schema::create('couriers', function (Blueprint $table) {
             $table->id();
             $table->string('natureClie');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('destination_id')->constrained();
+            $table->foreignId('user_id')->constrained('users');  // Spécifie la table référencée
+            $table->foreignId('destination_id')->constrained('destinations');  // Spécifie la table référencée
             $table->timestamps();
         });
         Schema::enableForeignKeyConstraints();
@@ -30,8 +30,10 @@ class CreateCouriersTable extends Migration
      */
     public function down()
     {
-        Schema::table('couriers', function(Blueprint $table){
-            $table->dropForeign(["user_id","destination_id"]);
+        Schema::table('couriers', function (Blueprint $table) {
+            // Le nom de la contrainte générée automatiquement pourrait être différent.
+            $table->dropForeign(['user_id']);
+            $table->dropForeign(['destination_id']);
         });
         Schema::dropIfExists('couriers');
     }
